@@ -22,4 +22,51 @@ public class Main {
 
     }
 
+
+    public static void main2(String[] args) {
+
+        SuperGangas nuevo = new SuperGangas(20);
+        int valor;
+        int opcion;
+
+        do {
+            System.out.println("Elija la opción");
+            System.out.println("1. Agregar electrodoméstico");
+            System.out.println("2. Eliminar electrodoméstico");
+
+            System.out.println("Ingrese la opción deseada");
+            opcion = obtenerEntero();
+
+            switch (opcion){
+                case 1:
+                    System.out.print("Ingrese el electrodoméstico a comprar: ");
+                    valor = obtenerEntero();
+                    nuevo.enqueue(valor);
+                    break;
+                case 2:
+                    System.out.print("Ingrese el electródoméstico que desea eliminar");
+                    valor = obtenerEntero();
+                    nuevo.dequeue();
+                    break;
+
+                default:
+                    System.out.println("Opción no válida. Ingrese un dato válido.");
+                    break;
+            }
+
+        } while (opcion != 0);
+    }
+
+    private static int obtenerEntero() {
+        try {
+            java.util.Scanner scanner = new java.util.Scanner(System.in);
+            return scanner.nextInt();
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("Error");
+            System.out.println("Por favor ingrese un electrodoméstico valido");
+            return 0;
+        }
+
+    }
+
 }
